@@ -1,0 +1,47 @@
+{% extends "admin_dashboard/dashboard_base.html" %}
+
+{% block content %}
+    <div class="container mt-4">
+    <h2 class="text-center">Alerts Center</h2>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Timestamp</th>
+                    <th scope="col">Product</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Threshold</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if alerts %}
+                    {% for alert in alerts %}
+                    <tr>
+                        <td>{{ alert.timestamp }}</td>
+                        <td>{{ alert.product_name }}</td>
+                        <td>{{ alert.quantity }}</td>
+                        <td>{{ alert.low_stock_threshold }}</td>
+                        <td>
+                            <span class="badge badge-danger">
+                                Low stock!
+                            </span>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="5" class="text-center">
+                            <strong>No Alerts</strong>
+                        </td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center mt-3">
+        <a href="#" class="btn btn-outline-primary">Show All Alerts</a>
+    </div>
+</div>
+
+{% endblock %}

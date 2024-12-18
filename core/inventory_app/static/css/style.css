@@ -1,0 +1,48 @@
+/* Basic Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+.container {
+    max-width: 900px;
+}
+
+h2 {
+    color: #007bff;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Product Table */
+#selected-products-table {
+    margin-top: 20px;
+}
+
+#selected-products-table thead {
+    background-color: #343a40;
+    color: white;
+}
+
+#selected-products-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+/* Action Buttons */
+#add-product {
+    background-color: #28a745;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+#add-product:hover {
+    background-color: #218838;
+}
+
+#clear-all, #print-invoice {
+    margin-top: 10px;
+}

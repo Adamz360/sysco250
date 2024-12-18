@@ -1,0 +1,49 @@
+<!-- templates/inventory/add_employee.html -->
+{% extends "admin_dashboard/dashboard_base.html" %}
+{% load form_filters %}
+
+
+{% block content %}
+<div class="container">
+    <h2 class="my-4 text-center">Add New Employee</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <form method="post" class="needs-validation" novalidate>
+                        {% csrf_token %}
+                        <!-- Render each field manually for better styling -->
+                        <div class="mb-3">
+                            <label for="id_username" class="form-label">Username</label>
+                            {{ form.username|add_class:"form-control" }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_password" class="form-label">Password</label>
+                            {{ form.password|add_class:"form-control" }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_confirm_password" class="form-label">Confirm Password</label>
+                            {{ form.confirm_password|add_class:"form-control" }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_first_name" class="form-label">First Name</label>
+                            {{ form.first_name|add_class:"form-control" }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_last_name" class="form-label">Last Name</label>
+                            {{ form.last_name|add_class:"form-control" }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_role" class="form-label">Role</label>
+                            {{ form.role|add_class:"form-select" }}
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Add Employee</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

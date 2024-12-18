@@ -1,0 +1,40 @@
+{% extends "admin_dashboard/dashboard_base.html" %}
+
+{% block content %}
+
+<!-- Container for the table -->
+<div class="container">
+    <h2 class="my-4 text-center">Email List</h2>
+    <!-- Card container for the table -->
+    <div class="card shadow-sm">
+        <div class="card-header">
+            <h4 class="card-title">Receiver Email</h4>
+        </div>
+        <div class="card-body">
+            <!-- Table with Bootstrap classes -->
+            <table class="table table-bordered table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for email in mails %}
+                    <tr>
+                        <td>{{ email.admin_email }}</td>
+                        <td>
+                            {% if user.is_staff %}
+                                <a href="{% url 'delete_email' email.id %}" class="btn btn-danger btn-sm">
+                                   Delete
+                                </a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

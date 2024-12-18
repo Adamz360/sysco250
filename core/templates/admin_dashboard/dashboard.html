@@ -1,0 +1,337 @@
+{% extends "admin_dashboard/dashboard_base.html" %}
+
+{% block content %}
+
+
+
+    <!-- Page Wrapper -->
+
+
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+                <!-- Begin Page Content -->
+
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xl font-weight-bold text-primary text-uppercase mb-1">
+                                                Total Revenue Today</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                N{{ total_revenue_day|default:0.0 }}
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-money-check fa-2x text-gray-500"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xl font-weight-bold text-success text-uppercase mb-1">
+                                                Total Week Revenue</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                N{{ total_revenue_week|default:0.0 }}
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-money-check fa-2x text-gray-500"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                         <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xl font-weight-bold text-info text-uppercase mb-1">
+                                               Total Month Revenue</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                N{{ total_revenue_month|default:0.0 }}
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-money-check fa-2x text-gray-500"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xl font-weight-bold text-info text-uppercase mb-1">
+                                                Total Year Revenue</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                N{{ total_revenue_year|default:0.0 }}
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-money-check fa-2x text-gray-500"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Row -->
+
+                    <div class="row">
+
+                        <!-- Area Chart -->
+<!--                        <div class="col-xl-8 col-lg-7">-->
+<!--                            <div class="card shadow mb-4">-->
+<!--                                &lt;!&ndash; Card Header - Dropdown &ndash;&gt;-->
+<!--                                <div-->
+<!--                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">-->
+<!--                                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>-->
+<!--                                    <div class="dropdown no-arrow">-->
+<!--                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"-->
+<!--                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>-->
+<!--                                        </a>-->
+<!--                                        <div class="dropdown-menu dropdown-menu-right shadow animated&#45;&#45;fade-in"-->
+<!--                                            aria-labelledby="dropdownMenuLink">-->
+<!--                                            <div class="dropdown-header">Dropdown Header:</div>-->
+<!--                                            <a class="dropdown-item" href="#">Action</a>-->
+<!--                                            <a class="dropdown-item" href="#">Another action</a>-->
+<!--                                            <div class="dropdown-divider"></div>-->
+<!--                                            <a class="dropdown-item" href="#">Something else here</a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                &lt;!&ndash; Card Body &ndash;&gt;-->
+<!--                                <div class="card-body">-->
+<!--                                    <div class="chart-area">-->
+<!--                                        <canvas id="myAreaChart"></canvas>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+                        <!-- Pie Chart -->
+<!--                        <div class="col-xl-4 col-lg-5">-->
+<!--                            <div class="card shadow mb-4">-->
+<!--                                &lt;!&ndash; Card Header - Dropdown &ndash;&gt;-->
+<!--                                <div-->
+<!--                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">-->
+<!--                                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>-->
+<!--                                    <div class="dropdown no-arrow">-->
+<!--&lt;!&ndash;                                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"&ndash;&gt;-->
+<!--&lt;!&ndash;                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&ndash;&gt;-->
+<!--&lt;!&ndash;                                            <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>&ndash;&gt;-->
+<!--&lt;!&ndash;                                        </a>&ndash;&gt;-->
+<!--                                        <div class="dropdown-menu dropdown-menu-right shadow animated&#45;&#45;fade-in"-->
+<!--                                            aria-labelledby="dropdownMenuLink">-->
+<!--                                            <div class="dropdown-header">Dropdown Header:</div>-->
+<!--                                            <a class="dropdown-item" href="#">Action</a>-->
+<!--                                            <a class="dropdown-item" href="#">Another action</a>-->
+<!--                                            <div class="dropdown-divider"></div>-->
+<!--                                            <a class="dropdown-item" href="#">Something else here</a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                &lt;!&ndash; Card Body &ndash;&gt;-->
+<!--                                <div class="card-body">-->
+<!--                                    <div class="chart-pie pt-4 pb-2">-->
+<!--                                        <canvas id="myPieChart"></canvas>-->
+<!--                                    </div>-->
+<!--                                    <div class="mt-4 text-center small">-->
+<!--                                        <span class="mr-2">-->
+<!--                                            <i class="fas fa-circle text-primary"></i> Direct-->
+<!--                                        </span>-->
+<!--                                        <span class="mr-2">-->
+<!--                                            <i class="fas fa-circle text-success"></i> Social-->
+<!--                                        </span>-->
+<!--                                        <span class="mr-2">-->
+<!--                                            <i class="fas fa-circle text-info"></i> Referral-->
+<!--                                        </span>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                    </div>
+                        <h1 class="text-center text-primary mb-4">Top Selling Products</h1>
+                        <h2 class="text-info">By Quantity Sold</h2>
+                    <div class="row">
+                        <div class="col-xl-4">
+                            <h3>Today</h3>
+                            <table class="table table-bordered table-striped table-hover">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>Product Name</th>
+                                        <th>Quantity Sold</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for product in top_sale_today %}
+                                        <tr>
+                                            <td>{{ product.product__name }}</td>
+                                            <td>{{ product.total_quantity }}</td>
+                                        </tr>
+                                    {% empty %}
+                                        <tr>
+                                            <td colspan="2" class="text-center text-muted">No data available</td>
+
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-xl-4">
+                            <h3>This Week</h3>
+                            <table class="table table-bordered table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Product Name</th>
+                    <th>Quantity Sold</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in top_sale_week %}
+                    <tr>
+                        <td>{{ product.product__name }}</td>
+                        <td>{{ product.total_quantity }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="2" class="text-center text-muted">No data available</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                    </table>
+                        </div>
+                        <div class="col-xl-4">
+                            <h3>This Month</h3>
+                            <table class="table table-bordered table-striped table-hover">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>Product Name</th>
+                                        <th>Quantity Sold</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                    {% for product in top_sale_month %}
+                        <tr>
+                            <td>{{ product.product__name }}</td>
+                            <td>{{ product.total_quantity }}</td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="2" class="text-center text-muted">No data available</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                            <h2 class="text-info">By Revenue</h2>
+
+                    <div class="row">
+                    <div class="col-xl-4">
+                         <h3>Today</h3>
+                        <table class="table table-bordered table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Product Name</th>
+                    <th>Revenue</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in top_sale_revenue_today %}
+                    <tr>
+                        <td>{{ product.product__name }}</td>
+                        <td>N{{ product.total_revenue }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="2" class="text-center text-muted">No data available</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+                    </div>
+                    <div class="col-xl-4">
+                        <h3>This Week</h3>
+                        <table class="table table-bordered table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Product Name</th>
+                    <th>Revenue</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in top_sale_revenue_week %}
+                    <tr>
+                        <td>{{ product.product__name }}</td>
+                        <td>N{{ product.total_revenue }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="2" class="text-center text-muted">No data available</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+                    </div>
+                    <div class="col-xl-4">
+                        <h3>This Month</h3>
+                        <table class="table table-bordered table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Product Name</th>
+                    <th>Revenue</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in top_sale_revenue_month %}
+                    <tr>
+                        <td>{{ product.product__name }}</td>
+                        <td>N{{ product.total_revenue }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="2" class="text-center text-muted">No data available</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <!-- End of Main Content -->
+
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+{% endblock %}
+

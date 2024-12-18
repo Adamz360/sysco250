@@ -1,0 +1,50 @@
+<!-- templates/inventory/update_product.html -->
+
+{% extends "admin_dashboard/dashboard_base.html" %}
+
+{% load form_filters %}
+{% block content %}
+
+
+<!-- Container for the form -->
+<div class="container mt-4">
+    <h2 class="my-4 text-center">Update Product</h2>
+    <div class="card shadow-sm">
+        <div class="card-header">
+            <h4 class="card-title">Product Information</h4>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+
+                <!-- Form fields with custom width -->
+                <div class="form-group">
+                    <label for="id_name">Product Name</label>
+                    {{ form.name|add_class:"form-control w-100" }}
+                </div>
+                <div class="form-group">
+                    <label for="id_category">Category</label>
+                    {{ form.category|add_class:"form-control w-100" }}
+                </div>
+                <div class="form-group">
+                    <label for="id_price">Price</label>
+                    {{ form.price|add_class:"form-control w-100" }}
+                </div>
+                <div class="form-group">
+                    <label for="id_quantity">Quantity</label>
+                    {{ form.quantity|add_class:"form-control w-100" }}
+                </div>
+                <div class="form-group">
+                    <label for="id_low_stock_threshold">Low Stock Threshold</label>
+                    {{ form.low_stock_threshold|add_class:"form-control w-100" }}
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block">Update Product</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

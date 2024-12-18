@@ -1,0 +1,106 @@
+{% load custom_filters %}
+{% load humanize %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        .receipt-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .receipt-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .receipt-header h1 {
+            font-size: 24px;
+            margin: 0;
+            color: #343a40;
+        }
+        .receipt-header p {
+            font-size: 14px;
+            margin: 0;
+            color: #6c757d;
+        }
+        .table th, .table td {
+            text-align: center;
+            vertical-align: middle;
+        }
+        .footer-info {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #6c757d;
+        }
+        .footer-info p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="receipt-container">
+        <div class="receipt-header">
+            <h1>Receipt</h1>
+            <p>Date: {{ date }}</p>
+            <p>Time: {{ time }}</p>
+            <p>Cashier: {{ employee_name }}</p>
+        </div>
+
+        <table class="table table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>SN</th>
+                    <th>Item</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ item.description }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>N{{ item.price }}</td>
+                    <td>N{{ item.quantity|floatformat:2|mul:item.price }}</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td colspan="5" class="text-right font-weight-bold">Grand Total</td>
+                    <td class="font-weight-bold">N{{ grand_total|floatformat:2|intcomma }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="footer-info">
+            <p>Payment Method: {{ payment_method }}</p>
+            <p>Thank you for shopping with us!</p>
+            <p>This is your receipt. Keep it safe.</p>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            window.print();
+        };
+    </script>
+</body>
+</html>
